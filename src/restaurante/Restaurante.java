@@ -5,17 +5,25 @@
  */
 package restaurante;
 
+import java.sql.SQLException;
+import restaurante.bd.Conexao;
+
 /**
  *
  * @author Gabriel
  */
 public class Restaurante {
-
+    
     /**
      * @param args the command line arguments
+     * @throws java.sql.SQLException
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws SQLException {
+        Conexao bd = new Conexao();
+        // Inicializar o banco de dados;
+        bd.MyConexao();
+        //
+        
     }
     
 }

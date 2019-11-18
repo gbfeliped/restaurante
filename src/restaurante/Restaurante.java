@@ -5,6 +5,7 @@
  */
 package restaurante;
 
+import javax.swing.JFrame;
 import java.sql.SQLException;
 import restaurante.bd.Conexao;
 
@@ -23,7 +24,9 @@ public class Restaurante {
         // Inicializar o banco de dados;
         bd.MyConexao();
         //
-        
+        Inicio login = new Inicio();
+        login.setVisible(true);
+        login.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
 }

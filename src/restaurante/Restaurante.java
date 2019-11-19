@@ -26,7 +26,7 @@ public class Restaurante {
         //
         Inicio login = new Inicio();
         login.setVisible(true);
-        login.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //login.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
 }

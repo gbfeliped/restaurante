@@ -31,6 +31,7 @@ public class Inicio extends javax.swing.JFrame {
         btnConsultar = new javax.swing.JButton();
         btnFazerPedido = new javax.swing.JButton();
         btnLogar = new javax.swing.JLabel();
+        btnAlterar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +56,14 @@ public class Inicio extends javax.swing.JFrame {
 
         btnLogar.setText("Funcionário ?");
 
+        btnAlterar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnAlterar.setText("Alterar pedido");
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -68,33 +77,30 @@ public class Inicio extends javax.swing.JFrame {
                                 .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(324, 324, 324)
-                                .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnFazerPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 241, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnLogar)))
                 .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(323, 323, 323)
-                    .addComponent(btnFazerPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(334, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(134, 134, 134)
+                .addGap(49, 49, 49)
+                .addComponent(btnFazerPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 252, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
                 .addComponent(btnLogar)
                 .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(114, 114, 114)
-                    .addComponent(btnFazerPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(359, Short.MAX_VALUE)))
         );
 
         pack();
@@ -107,6 +113,10 @@ public class Inicio extends javax.swing.JFrame {
     private void btnFazerPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFazerPedidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFazerPedidoActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAlterarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,6 +157,7 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnFazerPedido;
     private javax.swing.JLabel btnLogar;

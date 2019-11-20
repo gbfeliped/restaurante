@@ -24,11 +24,9 @@ public class Restaurante {
         // Inicializar o banco de dados;
         bd.MyConexao();
         //
-        //Inicio login = new Inicio();
-        //login.setVisible(true);
+        Inicio login = new Inicio();
+        login.setVisible(true);
         //login.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        RealizarPedido a = new RealizarPedido();
-        a.setVisible(true);
     }
     
 }

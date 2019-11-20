@@ -62,7 +62,7 @@
               <Component id="btnConsultar" min="-2" pref="59" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnAlterar" min="-2" pref="59" max="-2" attributes="0"/>
-              <EmptySpace pref="183" max="32767" attributes="0"/>
+              <EmptySpace pref="140" max="32767" attributes="0"/>
               <Component id="btnLogar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>

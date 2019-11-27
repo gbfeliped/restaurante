@@ -5,6 +5,11 @@
  */
 package restaurante;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author gabri
@@ -15,6 +20,13 @@ public class Produto {
     double valor;
     String descricao;
 
+    public ResultSet select(Connection con,int id) throws SQLException{
+        PreparedStatement stm = con.prepareStatement("select * from produto where id_produto = ?");
+        stm.setInt(1, id);
+        ResultSet rs = stm.executeQuery();
+        return rs;
+    }
+    
     public int getId_produto() {
         return id_produto;
     }

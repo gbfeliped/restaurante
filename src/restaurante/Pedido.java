@@ -5,6 +5,11 @@
  */
 package restaurante;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author gabri
@@ -14,6 +19,20 @@ public class Pedido {
     double valor_pedido;
     int numero_mesa;
 
+    
+    public ResultSet selectPedido(Connection con,int id) throws SQLException{
+        PreparedStatement stm = con.prepareStatement("select * from pedido where id_pedido = ?");
+        stm.setInt(1, id);
+        ResultSet rs = stm.executeQuery();
+        return rs;
+    }
+    
+    public int deletePedido(Connection con, int id) throws SQLException {
+        PreparedStatement stm = con.prepareStatement("delete from pedido where id_pedido = ?");
+        stm.setInt(1, id);
+        return stm.executeUpdate();
+    }
+    
     public int getId_pedido() {
         return id_pedido;
     }

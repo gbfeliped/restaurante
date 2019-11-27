@@ -20,9 +20,9 @@ public class Restaurante {
      * @throws java.sql.SQLException
      */
     public static void main(String[] args) throws SQLException {
-        Conexao bd = new Conexao();
+        //Conexao bd = new Conexao();
         // Inicializar o banco de dados;
-        bd.MyConexao();
+        //bd.MyConexao();
         //
         Inicio login = new Inicio();
         login.setVisible(true);

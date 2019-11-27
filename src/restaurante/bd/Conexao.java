@@ -15,26 +15,33 @@ import java.sql.SQLException;
 public class Conexao {
     private Connection con;
     
-    
-    public static void main(String[] args) {
+    public Connection getCon() {
+        return con;
+    }
+
+    public void setCon() {
+        try{
+            Connection con1;
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con1 = DriverManager.getConnection("jdbc:mysql://localhost/restaurante?useTimezone=true&serverTimezone=UTC", "root", "");
+            System.out.println("Banco de dados se conectou com sucesso!");
+            this.con = con1;
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println("Banco de dados nao conectou: "+e);
+            this.con = null;
+        }
         
     }
     
-    public void MyConexao () {
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/restaurante?useTimezone=true&serverTimezone=UTC", "root", "");
-            System.out.println("Banco de dados se conectou com sucesso!");
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("Banco de dados nao conectou: "+e);
+    public void closeCon() throws SQLException {
+        if(this.con != null) {
+            this.con.close();
+            System.out.println("Conexão com o banco de dados foi fechada!");
+        } else {
+            System.out.println("Não foi possivel fechar a conexão com o banco de dados !");
         }
     }
     /*
-    public ResultSet selectPedido(int id) throws SQLException{
-        PreparedStatement stm = con.prepareStatement("select * from pedido where id_pedido = ?");
-        stm.setInt(1, id);
-        ResultSet rs = stm.executeQuery();
-        return rs;
-    }
+    
     */
 }

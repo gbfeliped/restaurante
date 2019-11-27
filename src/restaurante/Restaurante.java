@@ -5,8 +5,14 @@
  */
 package restaurante;
 
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import javax.swing.JFrame;
 import java.sql.SQLException;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import restaurante.bd.Conexao;
 
 /**
@@ -15,6 +21,9 @@ import restaurante.bd.Conexao;
  */
 public class Restaurante {
     
+    public int numeroMesa = 0;
+
+
     /**
      * @param args the command line arguments
      * @throws java.sql.SQLException
@@ -24,9 +33,17 @@ public class Restaurante {
         // Inicializar o banco de dados;
         //bd.MyConexao();
         //
+
         Inicio login = new Inicio();
         login.setVisible(true);
         //login.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    }
+    public int getNumeroMesa() {
+        return numeroMesa;
+    }
+
+    public void setNumeroMesa(int numeroMesa) {
+        this.numeroMesa = numeroMesa;
     }
     
 }

@@ -5,6 +5,9 @@
  */
 package restaurante;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author gustavo
@@ -42,11 +45,11 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Logo");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logo.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -61,7 +64,7 @@ public class Inicio extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -122,8 +125,12 @@ public class Inicio extends javax.swing.JFrame {
         //TelaCardLayout Tcl = new TelaCardLayout();
        // Tcl.setVisible(true);
         
-       ViewAcompanha Va = new ViewAcompanha();
-        Va.setVisible(true);
+        FrameModal modal = new FrameModal(this, true);
+
+        modal.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); 
+        modal.setResizable(false);
+        modal.setLocationRelativeTo(null);
+        modal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 

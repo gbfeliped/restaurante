@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import restaurante.bd.Conexao;
 
@@ -25,7 +26,8 @@ import restaurante.bd.Conexao;
 public class ViewPedido extends javax.swing.JFrame {
 
     private Conexao bd = new Conexao();
-    private Produto pedido = new Produto();
+    private Produto produto = new Produto();
+    private Pedido pedido = new Pedido();
     /**
      * Creates new form ViewPedido
      */
@@ -46,7 +48,7 @@ public class ViewPedido extends javax.swing.JFrame {
     
     private void editarDetalhes(String foto,String desc, String valor){
         fotoItem.setIcon(new ImageIcon(this.getClass().getResource("/"+foto)));
-        descItem.setText(desc);
+        descItem.setText("<html>"+desc+"</html>");
         precoItem.setText("R$ "+valor);
     }
     /**
@@ -89,8 +91,8 @@ public class ViewPedido extends javax.swing.JFrame {
         btnSelect6 = new javax.swing.JToggleButton();
         jLabel10 = new javax.swing.JLabel();
         panelSlc5 = new javax.swing.JPanel();
-        btnSelect5 = new javax.swing.JToggleButton();
         jLabel8 = new javax.swing.JLabel();
+        btnSelect5 = new javax.swing.JToggleButton();
         jButton2 = new javax.swing.JButton();
         panelSlc1 = new javax.swing.JPanel();
         btnSelect1 = new javax.swing.JToggleButton();
@@ -105,6 +107,7 @@ public class ViewPedido extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logo.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -119,7 +122,7 @@ public class ViewPedido extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -159,8 +162,10 @@ public class ViewPedido extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(fotoItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(155, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(fotoItem, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -330,7 +335,7 @@ public class ViewPedido extends javax.swing.JFrame {
             panelSlc8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSlc8Layout.createSequentialGroup()
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(btnSelect8))
         );
 
@@ -385,10 +390,13 @@ public class ViewPedido extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSlc6Layout.createSequentialGroup()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSelect6))
+                .addComponent(btnSelect6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         panelSlc5.setPreferredSize(new java.awt.Dimension(160, 170));
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Expresso-Delivery_9f0a112a57c9f1c8d9159cf34cafd573.png"))); // NOI18N
 
         btnSelect5.setText("Selecionar");
         btnSelect5.addActionListener(new java.awt.event.ActionListener() {
@@ -397,25 +405,28 @@ public class ViewPedido extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Expresso-Delivery_9f0a112a57c9f1c8d9159cf34cafd573.png"))); // NOI18N
-
         javax.swing.GroupLayout panelSlc5Layout = new javax.swing.GroupLayout(panelSlc5);
         panelSlc5.setLayout(panelSlc5Layout);
         panelSlc5Layout.setHorizontalGroup(
             panelSlc5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnSelect5, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 160, Short.MAX_VALUE)
+            .addComponent(btnSelect5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelSlc5Layout.setVerticalGroup(
             panelSlc5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSlc5Layout.createSequentialGroup()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSelect5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSelect5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         jButton2.setText("Comprar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         panelSlc1.setPreferredSize(new java.awt.Dimension(160, 170));
 
@@ -453,16 +464,18 @@ public class ViewPedido extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(panelSlc5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(panelSlc6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(panelSlc7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(panelSlc8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(panelSlc5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panelSlc6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panelSlc7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panelSlc8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(panelSlc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
@@ -470,7 +483,8 @@ public class ViewPedido extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(panelSlc3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panelSlc4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(panelSlc4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -487,11 +501,11 @@ public class ViewPedido extends javax.swing.JFrame {
                             .addComponent(panelSlc2, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
                             .addComponent(panelSlc1, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE))
                         .addGap(41, 41, 41)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelSlc8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelSlc7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelSlc6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelSlc5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelSlc8, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                            .addComponent(panelSlc7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                            .addComponent(panelSlc6, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                            .addComponent(panelSlc5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -515,7 +529,7 @@ public class ViewPedido extends javax.swing.JFrame {
     private void btnSelect1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelect1ActionPerformed
         // TODO add your handling code here:
         try {
-            ResultSet res = pedido.select(bd.getCon(), 1);
+            ResultSet res = produto.select(bd.getCon(), 1);
             res.first();
             editarDetalhes(res.getString("foto_p"), res.getString("descricao_p"), res.getString("valor_p"));
         } catch (SQLException ex) {
@@ -538,7 +552,7 @@ public class ViewPedido extends javax.swing.JFrame {
     private void btnSelect2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelect2ActionPerformed
         // TODO add your handling code here:
         try {
-            ResultSet res = pedido.select(bd.getCon(), 2);
+            ResultSet res = produto.select(bd.getCon(), 2);
             res.first();
             editarDetalhes(res.getString("foto_p"), res.getString("descricao_p"), res.getString("valor_p"));
         } catch (SQLException ex) {
@@ -548,7 +562,7 @@ public class ViewPedido extends javax.swing.JFrame {
 
     private void btnSelect3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelect3ActionPerformed
         try {
-            ResultSet res = pedido.select(bd.getCon(), 3);
+            ResultSet res = produto.select(bd.getCon(), 3);
             res.first();
             editarDetalhes(res.getString("foto_p"), res.getString("descricao_p"), res.getString("valor_p"));
         } catch (SQLException ex) {
@@ -558,7 +572,7 @@ public class ViewPedido extends javax.swing.JFrame {
 
     private void btnSelect4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelect4ActionPerformed
        try {
-            ResultSet res = pedido.select(bd.getCon(), 4);
+            ResultSet res = produto.select(bd.getCon(), 4);
             res.first();
             editarDetalhes(res.getString("foto_p"), res.getString("descricao_p"), res.getString("valor_p"));
         } catch (SQLException ex) {
@@ -568,7 +582,7 @@ public class ViewPedido extends javax.swing.JFrame {
 
     private void btnSelect5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelect5ActionPerformed
         try {
-            ResultSet res = pedido.select(bd.getCon(), 5);
+            ResultSet res = produto.select(bd.getCon(), 5);
             res.first();
             editarDetalhes(res.getString("foto_p"), res.getString("descricao_p"), res.getString("valor_p"));
         } catch (SQLException ex) {
@@ -578,7 +592,7 @@ public class ViewPedido extends javax.swing.JFrame {
 
     private void btnSelect6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelect6ActionPerformed
         try {
-            ResultSet res = pedido.select(bd.getCon(), 6);
+            ResultSet res = produto.select(bd.getCon(), 6);
             res.first();
             editarDetalhes(res.getString("foto_p"), res.getString("descricao_p"), res.getString("valor_p"));
         } catch (SQLException ex) {
@@ -588,7 +602,7 @@ public class ViewPedido extends javax.swing.JFrame {
 
     private void btnSelect7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelect7ActionPerformed
         try {
-            ResultSet res = pedido.select(bd.getCon(), 7);
+            ResultSet res = produto.select(bd.getCon(), 7);
             res.first();
             editarDetalhes(res.getString("foto_p"), res.getString("descricao_p"), res.getString("valor_p"));
         } catch (SQLException ex) {
@@ -598,13 +612,146 @@ public class ViewPedido extends javax.swing.JFrame {
 
     private void btnSelect8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelect8ActionPerformed
         try {
-            ResultSet res = pedido.select(bd.getCon(), 5);
+            ResultSet res = produto.select(bd.getCon(), 5);
             res.first();
             editarDetalhes(res.getString("foto_p"), res.getString("descricao_p"), res.getString("valor_p"));
         } catch (SQLException ex) {
             Logger.getLogger(ViewPedido.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnSelect8ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        boolean sl1 = btnSelect1.isSelected();
+        boolean sl2 = btnSelect2.isSelected();
+        boolean sl3 = btnSelect3.isSelected();
+        boolean sl4 = btnSelect4.isSelected();
+        boolean sl5 = btnSelect5.isSelected();
+        boolean sl6 = btnSelect6.isSelected();
+        boolean sl7 = btnSelect7.isSelected();
+        boolean sl8 = btnSelect8.isSelected();
+        double valorTotal = 0.0;
+        int produtos_id[] = {0,0,0,0,0,0,0,0};
+        int num_pedido = 0;
+        String produtosp = "";
+        if(sl1 || sl2 || sl3 || sl4 || sl5 || sl6 || sl7 || sl8){
+            if(sl1){
+               ResultSet res;
+                try {
+                    res = produto.select(bd.getCon(), 1);
+                    res.first();
+                    valorTotal += res.getDouble("valor_p");
+                    produtos_id[0] = res.getInt("id_produto");
+                    produtosp += "- "+res.getString("nome_p")+"\n";
+                } catch (SQLException ex) {
+                    Logger.getLogger(ViewPedido.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if(sl2){
+               ResultSet res;
+                try {
+                    res = produto.select(bd.getCon(), 2);
+                    res.first();
+                    valorTotal += res.getDouble("valor_p");
+                    produtos_id[1] = res.getInt("id_produto");
+                    produtosp += "- "+res.getString("nome_p")+"\n";
+                } catch (SQLException ex) {
+                    Logger.getLogger(ViewPedido.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if(sl3){
+               ResultSet res;
+                try {
+                    res = produto.select(bd.getCon(), 3);
+                    res.first();
+                    valorTotal += res.getDouble("valor_p");
+                    produtos_id[2] = res.getInt("id_produto");
+                     produtosp += "- "+res.getString("nome_p")+"\n";
+                } catch (SQLException ex) {
+                    Logger.getLogger(ViewPedido.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if(sl4){
+               ResultSet res;
+                try {
+                    res = produto.select(bd.getCon(), 4);
+                    res.first();
+                    valorTotal += res.getDouble("valor_p");
+                    produtos_id[3] = res.getInt("id_produto");
+                    produtosp += "- "+res.getString("nome_p")+"\n";
+                } catch (SQLException ex) {
+                    Logger.getLogger(ViewPedido.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if(sl5){
+               ResultSet res;
+                try {
+                    res = produto.select(bd.getCon(), 5);
+                    res.first();
+                    valorTotal += res.getDouble("valor_p");
+                    produtos_id[4] = res.getInt("id_produto");
+                    produtosp += "- "+res.getString("nome_p")+"\n";
+                } catch (SQLException ex) {
+                    Logger.getLogger(ViewPedido.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if(sl6){
+               ResultSet res;
+                try {
+                    res = produto.select(bd.getCon(), 6);
+                    res.first();
+                    valorTotal += res.getDouble("valor_p");
+                    produtos_id[5] = res.getInt("id_produto");
+                    produtosp += "- "+res.getString("nome_p")+"\n";
+                } catch (SQLException ex) {
+                    Logger.getLogger(ViewPedido.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if(sl7){
+               ResultSet res;
+                try {
+                    res = produto.select(bd.getCon(), 7);
+                    res.first();
+                    valorTotal += res.getDouble("valor_p");
+                    produtos_id[6] = res.getInt("id_produto");
+                    produtosp += "- "+res.getString("nome_p")+"\n";
+                } catch (SQLException ex) {
+                    Logger.getLogger(ViewPedido.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if(sl8){
+               ResultSet res;
+                try {
+                    res = produto.select(bd.getCon(), 8);
+                    res.first();
+                    valorTotal += res.getDouble("valor_p");
+                    produtos_id[7] = res.getInt("id_produto");
+                    produtosp += "- "+res.getString("nome_p")+"\n";
+                } catch (SQLException ex) {
+                    Logger.getLogger(ViewPedido.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            try {
+                num_pedido = pedido.insertPedido(bd.getCon(), valorTotal, 1);
+            } catch (SQLException ex) {
+                Logger.getLogger(ViewPedido.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            for(int i=0;i < produtos_id.length;i++){
+                if(produtos_id[i] > 0){
+                    try {
+                        pedido.insertProdutoxPedido(bd.getCon(), num_pedido, produtos_id[i]);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ViewPedido.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+            JOptionPane.showMessageDialog(this, "Pedido realizado com sucesso!\n\nO seu pedido é composto por:\n"+
+                    produtosp+"\n\nO valor total a ser pago é: R$ "+
+                    valorTotal+"\nO numero do pedido é: ( `"+
+                    num_pedido+"` ) guarde ele para o acompanhar!", "Sucesso!",JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Você deve selecionar pelo menos um produto!", "Atenção",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1,11 +1,5 @@
--- phpMyAdmin SQL Dump
--- version 4.8.0.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: 18-Nov-2019 às 18:32
--- Versão do servidor: 10.1.32-MariaDB
--- PHP Version: 5.6.36
+CREATE DATABASE restaurante;
+use restaurante;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,6 +27,15 @@ CREATE TABLE `cardapio` (
   `nome` varchar(50) NOT NULL,
   `tipo` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `cardapio`
+--
+
+INSERT INTO `cardapio` (`id_cardapio`, `nome`, `tipo`) VALUES
+(1, 'Lanche', 'lanche'),
+(2, 'Bebida', 'bebida'),
+(3, 'Combo', 'combo');
 
 -- --------------------------------------------------------
 
@@ -108,7 +111,8 @@ CREATE TABLE `pagamento` (
 CREATE TABLE `pedido` (
   `id_pedido` int(11) NOT NULL,
   `valor_Pedido` double NOT NULL,
-  `numero_Mesa` int(11) NOT NULL
+  `numero_Mesa` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -130,10 +134,25 @@ CREATE TABLE `pedido_produto` (
 
 CREATE TABLE `produto` (
   `id_produto` int(11) NOT NULL,
-  `nome_produto` varchar(45) NOT NULL,
-  `valor_produto` decimal(5,2) NOT NULL,
-  `descricao_produto` varchar(100) NOT NULL
+  `nome_p` varchar(45) NOT NULL,
+  `valor_p` decimal(5,2) NOT NULL,
+  `descricao_p` varchar(500) NOT NULL,
+  `foto_p` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `produto`
+--
+
+INSERT INTO `produto` (`id_produto`, `nome_p`, `valor_p`, `descricao_p`, `foto_p`) VALUES
+(1, 'Refrigerante Fanta 1,5L', '6.00', 'Refrigerante de laranja', 'assets/Expresso-Delivery_10bea64b80d31677828a1723d1bd065c.jpg'),
+(2, 'Refrigerante Fanta Guaraná 1.5L', '5.50', 'Refrigerante de guaraná', 'assets/Expresso-Delivery_12bbef384d58de2789d71456d90e7973.jpg'),
+(3, 'Refrigerante Sprite 1.5L', '7.00', 'Refrigerante de limão', 'assets/Expresso-Delivery_2808b351c161284331ef6736f138078d.jpg'),
+(4, 'Refrigerante Coca Cola 1,5l', '8.00', 'Refrigerante de cola', 'assets/Expresso-Delivery_7f5ed1df30a43062cd9a8f61a28148fb.jpg'),
+(5, 'Hamburguer Bacon Duplo', '25.90', 'Hamburguer feito especialmente <br/>para quem gosta de bacon em dobro que vai deixar seu hamburguer saboroso!', 'assets/Expresso-Delivery_9f0a112a57c9f1c8d9159cf34cafd573.png'),
+(6, 'Hamburguer Cheedar Duplo', '26.90', 'Hamburguer feito especialmente  <br/>para quem gosta de cheedar em dobro que vai deixar seu hamburguer saboroso!', 'assets/Expresso-Delivery_a1455ddd2dff1ee61b1ce1e56cf05317.png'),
+(7, 'Chikenburguer Cheedar', '21.90', 'Chikenburguer feito especialmente  <br/>para quem gosta de frango com cheedar!', 'assets/Expresso-Delivery_c5fd0c57eac60490f7c3b405a180c5ea.png'),
+(8, 'Hamburguer Duplo', '28.90', 'Hamburguer feito especialmente  <br/>para quem está com aquela fome monstra, possui duas carnes!', 'assets/Expresso-Delivery_546c150581f3a84bbf39608b4ed37551.png');
 
 --
 -- Indexes for dumped tables
@@ -206,7 +225,7 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT for table `cardapio`
 --
 ALTER TABLE `cardapio`
-  MODIFY `id_cardapio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cardapio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `endereco`
@@ -230,13 +249,13 @@ ALTER TABLE `pagamento`
 -- AUTO_INCREMENT for table `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

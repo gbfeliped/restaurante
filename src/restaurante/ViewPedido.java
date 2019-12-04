@@ -731,7 +731,7 @@ public class ViewPedido extends javax.swing.JFrame {
                 }
             }
             try {
-                num_pedido = pedido.insertPedido(bd.getCon(), valorTotal, 1);
+                num_pedido = pedido.insertPedido(bd.getCon(), Math.ceil(valorTotal), 1);
             } catch (SQLException ex) {
                 Logger.getLogger(ViewPedido.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -746,8 +746,11 @@ public class ViewPedido extends javax.swing.JFrame {
             }
             JOptionPane.showMessageDialog(this, "Pedido realizado com sucesso!\n\nO seu pedido é composto por:\n"+
                     produtosp+"\n\nO valor total a ser pago é: R$ "+
-                    valorTotal+"\nO numero do pedido é: ( `"+
+                    Math.ceil(valorTotal)+"\nO numero do pedido é: ( `"+
                     num_pedido+"` ) guarde ele para o acompanhar!", "Sucesso!",JOptionPane.INFORMATION_MESSAGE);
+            Inicio In = new Inicio();
+            In.setVisible(true);
+            this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Você deve selecionar pelo menos um produto!", "Atenção",JOptionPane.WARNING_MESSAGE);
         }

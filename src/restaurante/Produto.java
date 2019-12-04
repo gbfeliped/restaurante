@@ -27,6 +27,12 @@ public class Produto {
         return rs;
     }
     
+    public ResultSet selectAll(Connection con) throws SQLException{
+        PreparedStatement stm = con.prepareStatement("select * from produto");
+        ResultSet rs = stm.executeQuery();
+        return rs;
+    }
+    
     public int getId_produto() {
         return id_produto;
     }

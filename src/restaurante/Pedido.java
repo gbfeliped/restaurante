@@ -26,6 +26,11 @@ public class Pedido {
         ResultSet rs = stm.executeQuery();
         return rs;
     }
+    public ResultSet selectAll(Connection con) throws SQLException{
+        PreparedStatement stm = con.prepareStatement("select * from pedido");
+        ResultSet rs = stm.executeQuery();
+        return rs;
+    }
     public ResultSet select(Connection con,int id) throws SQLException{
         PreparedStatement stm = con.prepareStatement("select * from pedido where id_pedido = ?");
         stm.setInt(1, id);
